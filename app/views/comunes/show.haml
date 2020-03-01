@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @comune.name
+%p
+  %b Region:
+  = @comune.region
+
+= link_to 'Edit', edit_comune_path(@comune)
+\|
+= link_to 'Back', comunes_path

@@ -1,0 +1,23 @@
+%h1 Listing comunes
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Region
+      %th
+      %th
+      %th
+
+  %tbody
+    - @comunes.each do |comune|
+      %tr
+        %td= comune.name
+        %td= comune.region
+        %td= link_to 'Show', comune
+        %td= link_to 'Edit', edit_comune_path(comune)
+        %td= link_to 'Destroy', comune, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Comune', new_comune_path

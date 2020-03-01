@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  social_reason: MyString
+  address: MyString
+  giro: MyString
+  comune: one
+
+two:
+  social_reason: MyString
+  address: MyString
+  giro: MyString
+  comune: two

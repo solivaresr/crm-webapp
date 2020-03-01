@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Social reason:
+  = @client.social_reason
+%p
+  %b Address:
+  = @client.address
+%p
+  %b Giro:
+  = @client.giro
+%p
+  %b Comune:
+  = @client.comune
+
+= link_to 'Edit', edit_client_path(@client)
+\|
+= link_to 'Back', clients_path

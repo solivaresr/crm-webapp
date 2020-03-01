@@ -1,0 +1,25 @@
+%h1 Listing sale_executives
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Email
+      %th Password
+      %th
+      %th
+      %th
+
+  %tbody
+    - @sale_executives.each do |sale_executive|
+      %tr
+        %td= sale_executive.name
+        %td= sale_executive.email
+        %td= sale_executive.password
+        %td= link_to 'Show', sale_executive
+        %td= link_to 'Edit', edit_sale_executive_path(sale_executive)
+        %td= link_to 'Destroy', sale_executive, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Sale executive', new_sale_executive_path

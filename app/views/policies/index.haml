@@ -1,0 +1,35 @@
+%h1 Listing policies
+
+%table
+  %thead
+    %tr
+      %th Prime
+      %th Start date
+      %th End date
+      %th Comision
+      %th Payment type
+      %th Product
+      %th Client
+      %th Sale executive
+      %th
+      %th
+      %th
+
+  %tbody
+    - @policies.each do |policy|
+      %tr
+        %td= policy.prime
+        %td= policy.start_date
+        %td= policy.end_date
+        %td= policy.comision
+        %td= policy.payment_type
+        %td= policy.product
+        %td= policy.client
+        %td= policy.sale_executive
+        %td= link_to 'Show', policy
+        %td= link_to 'Edit', edit_policy_path(policy)
+        %td= link_to 'Destroy', policy, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Policy', new_policy_path

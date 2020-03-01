@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @sale_executive.name
+%p
+  %b Email:
+  = @sale_executive.email
+%p
+  %b Password:
+  = @sale_executive.password
+
+= link_to 'Edit', edit_sale_executive_path(@sale_executive)
+\|
+= link_to 'Back', sale_executives_path

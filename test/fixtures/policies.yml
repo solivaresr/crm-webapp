@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  prime: 1.5
+  start_date: 2020-03-01
+  end_date: 2020-03-01
+  comision: 1.5
+  payment_type: MyString
+  product: one
+  client: one
+  sale_executive: one
+
+two:
+  prime: 1.5
+  start_date: 2020-03-01
+  end_date: 2020-03-01
+  comision: 1.5
+  payment_type: MyString
+  product: two
+  client: two
+  sale_executive: two

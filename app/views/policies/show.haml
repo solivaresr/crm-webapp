@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Prime:
+  = @policy.prime
+%p
+  %b Start date:
+  = @policy.start_date
+%p
+  %b End date:
+  = @policy.end_date
+%p
+  %b Comision:
+  = @policy.comision
+%p
+  %b Payment type:
+  = @policy.payment_type
+%p
+  %b Product:
+  = @policy.product
+%p
+  %b Client:
+  = @policy.client
+%p
+  %b Sale executive:
+  = @policy.sale_executive
+
+= link_to 'Edit', edit_policy_path(@policy)
+\|
+= link_to 'Back', policies_path
