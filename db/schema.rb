@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 2020_03_01_041914) do
   enable_extension "plpgsql"
 
   create_table "clients", force: :cascade do |t|
-    t.string "social_reason"
-    t.string "address"
-    t.string "giro"
+    t.string "social_reason", limit: 150
+    t.string "address", limit: 90
+    t.string "giro", limit: 45
     t.bigint "comune_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2020_03_01_041914) do
   end
 
   create_table "comunes", force: :cascade do |t|
-    t.string "name"
+    t.string "name", limit: 45
     t.bigint "region_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2020_03_01_041914) do
     t.date "start_date"
     t.date "end_date"
     t.float "comision"
-    t.string "payment_type"
+    t.string "payment_type", limit: 45
     t.bigint "product_id"
     t.bigint "client_id"
     t.bigint "sale_executive_id"
@@ -50,22 +50,22 @@ ActiveRecord::Schema.define(version: 2020_03_01_041914) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "name"
+    t.string "name", limit: 45
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "regions", force: :cascade do |t|
-    t.string "name"
+    t.string "name", limit: 45
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "sale_executives", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password"
+    t.string "name", limit: 45
+    t.string "email", limit: 45
+    t.string "password", limit: 45
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
