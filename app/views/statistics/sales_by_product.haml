@@ -1,0 +1,53 @@
+.card.m-4
+  .card-header
+    %h3.card-title Ventas por producto
+  .card-body
+    %p= select_tag :product, options_for_select(@products, params[:id]), include_blank: 'Seleccione...'
+    %table#p-table.table.table-borderless
+      %thead
+        %tr.active
+          %th Prima
+          %th Inicio
+          %th Termino
+          %th Comision
+          %th Tipo de pago
+          %th Producto
+          %th Cliente
+          %th Executivo
+      %tbody
+
+:javascript
+  $('#product').change(function(){
+    var product = $('#product option:selected').val();
+
+    Rails.ajax({
+      url: "#{by_product_statistics_path(format: :json)}",
+      type: "get",
+      data: "id=" + product,
+      success: function(data) {
+        clean_table();
+        data.forEach(populate_table);
+      },
+      error: function(data) {
+      }
+    })
+  });
+
+  function populate_table(item, index){
+    console.log(item);
+    var row = '<tr>'
+      + '<td>' + item.prime + '</td>'
+      + '<td>' + item.start_date + '</td>'
+      + '<td>' + item.end_date + '</td>'
+      + '<td>' + item.comision + '%</td>'
+      + '<td>' + item.payment_type + '</td>'
+      + '<td>' + item.product.name + '</td>'
+      + '<td>' + item.client.social_reason + '</td>'
+      + '<td>' + item.sale_executive.name + '</td>'
+    + '</tr>';
+    $('#p-table tbody').append(row);
+  }
+
+  function clean_table(){
+    $('#p-table tbody').empty();
+  }
