@@ -1,27 +1,21 @@
-%h1 Listing clients
-
-%table
-  %thead
-    %tr
-      %th Social reason
-      %th Address
-      %th Giro
-      %th Comune
-      %th
-      %th
-      %th
-
-  %tbody
-    - @clients.each do |client|
-      %tr
-        %td= client.social_reason
-        %td= client.address
-        %td= client.giro
-        %td= client.comune
-        %td= link_to 'Show', client
-        %td= link_to 'Edit', edit_client_path(client)
-        %td= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Client', new_client_path
+.card.m-4
+  .card-header
+    .card-title
+      %h1.float-left Clientes
+      .float-right
+        = link_to 'Nuevo Cliente', new_client_path, class: 'btn btn-primary'
+  .card-body
+    %table.table.table-borderless
+      %thead
+        %tr
+          %th Razon Social
+          %th Direccion
+          %th Giro
+          %th Comuna
+      %tbody
+        - @clients.each do |client|
+          %tr
+            %td= client.social_reason
+            %td= client.address
+            %td= client.giro
+            %td= client.comune.name

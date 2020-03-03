@@ -1,3 +1,7 @@
+.card.m-4
+  .card-header
+    .card-title
+      %h3.float-left= "Cliente: " + @client.social_reason.to_s
 %p#notice= notice
 
 %p
@@ -11,8 +15,8 @@
   = @client.giro
 %p
   %b Comune:
-  = @client.comune
+  = @client.comune.name
 
-= link_to 'Edit', edit_client_path(@client)
+= link_to 'Editar', edit_client_path(@client)
 \|
-= link_to 'Back', clients_path
+= link_to 'Volver', clients_path
