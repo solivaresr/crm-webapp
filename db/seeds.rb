@@ -8,17 +8,17 @@
 
 executive1 = SaleExecutive.where(
   name: Faker::Name.name,
-  email: Faker::Internet.email,
+  email: 'executive1@crm.cl',
   password: Digest::MD5.hexdigest('12345')
 ).first_or_create
 executive2 = SaleExecutive.where(
   name: Faker::Name.name,
-  email: Faker::Internet.email,
+  email: 'executive1@crm.cl',
   password: Digest::MD5.hexdigest('12345')
 ).first_or_create
 executive3 = SaleExecutive.where(
   name: Faker::Name.name,
-  email: Faker::Internet.email,
+  email: 'executive1@crm.cl',
   password: Digest::MD5.hexdigest('12345')
 ).first_or_create
 

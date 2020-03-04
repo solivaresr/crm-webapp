@@ -1,0 +1,23 @@
+.row
+  .col-xs-12.d-flex.mx-auto.justify-content-center.d-inline-block
+    .card.mt-5
+      .card-header
+        %h3.car-title.text-center Bienvenido
+      .card-body
+        = render 'form'
+
+:javascript
+  $('.form-session').on('submit', function(event){
+    event.preventDefault();
+    $.ajax({
+      type: "POST",
+      url: this.action,
+      data: $(this).serialize(),
+      success: function(response) {
+        toastr.success('Bienvenido');
+      },
+      error: function(response){
+        toastr.error('Ha ocurrido un error, revise los datos y vuelva a intentarlo');
+      }
+    });
+  });

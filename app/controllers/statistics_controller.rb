@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class StatisticsController < ApplicationController #:nodoc:
+  before_action :authenticate_user!
+
+  # Devuelve las polizas vendidas con el producto consultado
   def sales_by_product
     @products = Product.all.collect { |e| [e.name, e.id] }
     return unless params[:id].present?
@@ -15,6 +18,7 @@ class StatisticsController < ApplicationController #:nodoc:
     )
   end
 
+  # Devuelve las ventas hechas por el executivo consultado
   def clients_by_executive
     @executives = SaleExecutive.all.collect { |e| [e.name, e.id] }
     return unless params[:id].present?

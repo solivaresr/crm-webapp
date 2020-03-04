@@ -1,0 +1,9 @@
+= form_for 'session', url: sessions_login_path, html: { class: 'form-session' } do |f|
+  .form-group
+    = f.label :email, 'Correo'
+    = f.text_field :email, class: 'form-control', required: true, oninvalid: "this.setCustomValidity('Debe ingresar un usuario')"
+  .form-group
+    = f.label :password, 'Contraseña'
+    = f.password_field :password, class: 'form-control', required: true, oninvalid: "this.setCustomValidity('Debe ingresar una contraseña')"
+  .form-group
+    = f.submit 'Guardar'

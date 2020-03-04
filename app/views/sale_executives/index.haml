@@ -1,4 +1,4 @@
-%h1 Listing sale_executives
+%h3 Listing sale_executives
 
 %table
   %thead
@@ -16,9 +16,9 @@
         %td= sale_executive.name
         %td= sale_executive.email
         %td= sale_executive.password
-        %td= link_to 'Show', sale_executive
-        %td= link_to 'Edit', edit_sale_executive_path(sale_executive)
-        %td= link_to 'Destroy', sale_executive, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Mostrar', sale_executive
+        %td= link_to 'Editar', edit_sale_executive_path(sale_executive)
+        %td= link_to 'Eliminar', sale_executive, method: :delete, data: { confirm: 'Está seguro?' }
 
 %br
 

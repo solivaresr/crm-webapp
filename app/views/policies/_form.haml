@@ -1,34 +1,43 @@
+- puts session[:current_user]['id'].inspect
 = form_for @policy do |f|
-  - if @policy.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@policy.errors.count, "error")} prohibited this policy from being saved:"
-      %ul
-        - @policy.errors.full_messages.each do |message|
-          %li= message
+  .form-group
+    = f.label :client, 'Cliente'
+    = f.select :client_id, options_for_select(@clients), { include_blank: 'Seleccione...' }, { class: 'form-control', required: true }
+  .form-group
+    = f.label :product, 'Producto'
+    = f.select :product_id, options_for_select(@products), { include_blank: 'Seleccione...' }, { class: 'form-control', required: true }
+  .form-group
+    = f.label :prime, 'Prima'
+    = f.number_field :prime, class: 'form-control', min: '1', required: true
+  .form-group
+    = f.label :start_date, 'Fecha de inicio'
+    = f.date_select :start_date, class: 'form-control', required: true
+  .form-group
+    = f.label :end_date, 'Fecha de término'
+    = f.date_select :end_date, class: 'form-control', required: true
+  .form-group
+    = f.label :comision, 'Comisión'
+    = f.number_field :comision, class: 'form-control', min: '1', required: true
+  .form-group
+    = f.label :payment_type, 'Tipo de pago'
+    = f.select :payment_type, @payment_types, {}, { class: 'form-control', required: true }
+  .form-group
+    = f.hidden_field :sale_executive_id, value: session[:current_user]['id']
+    = f.submit 'Guardar', class: 'btn btn-warning'
+    = link_to 'Volver', policies_path, class: 'btn btn-primary'
 
-  .field
-    = f.label :prime
-    = f.text_field :prime
-  .field
-    = f.label :start_date
-    = f.date_select :start_date
-  .field
-    = f.label :end_date
-    = f.date_select :end_date
-  .field
-    = f.label :comision
-    = f.text_field :comision
-  .field
-    = f.label :payment_type
-    = f.text_field :payment_type
-  .field
-    = f.label :product
-    = f.text_field :product
-  .field
-    = f.label :client
-    = f.text_field :client
-  .field
-    = f.label :sale_executive
-    = f.text_field :sale_executive
-  .actions
-    = f.submit 'Save'
+:javascript
+  $(".new_policy").on("submit", function(event){
+    event.preventDefault();
+    $.ajax({
+      type: "POST",
+      url: this.action,
+      data: $(this).serialize(),
+      success: function(response) {
+        toastr.success('Póliza ingresada exitosamente');
+      },
+      error: function(response){
+        toastr.error('Ha ocurrido un error, revise los datos y vuelva a intentarlo');
+      }
+    });
+  });

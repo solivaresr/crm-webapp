@@ -8,10 +8,10 @@ Rails.application.routes.draw do
 
   resources :policies
   resources :clients
-  resources :comunes
-  resources :products
-  resources :sale_executives
-  resources :regions
+  # resources :comunes
+  # resources :products
+  # resources :sale_executives
+  # resources :regions
   resources :statistics do
     collection do
       get 'sales_by_product(/:id)', to: 'statistics#sales_by_product', as: :by_product

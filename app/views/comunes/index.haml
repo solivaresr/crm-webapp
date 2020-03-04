@@ -1,4 +1,4 @@
-%h1 Listing comunes
+%h3 Listing comunes
 
 %table
   %thead
@@ -14,9 +14,9 @@
       %tr
         %td= comune.name
         %td= comune.region
-        %td= link_to 'Show', comune
-        %td= link_to 'Edit', edit_comune_path(comune)
-        %td= link_to 'Destroy', comune, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Mostrar', comune
+        %td= link_to 'Editar', edit_comune_path(comune)
+        %td= link_to 'Eliminar', comune, method: :delete, data: { confirm: 'Está seguro?' }
 
 %br
 
