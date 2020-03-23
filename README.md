@@ -1,24 +1,22 @@
-# README
+# CRM-Webapp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Iniciar
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Clonar repositorio
+```
+git clone https://github.com/solivaresr/crm-webapp.git
+```
+instalar gemas
+```
+bundle install
+```
+Crear base de datos postgresql
+```
+rails db:create
+rails db:migrate
+rails db:seed
+```
+Ejecutar servidor
+```
+rails s
+```
